@@ -9,7 +9,15 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'http://localhost:3001',
+    'http://localhost:3002',
+    'https://primetrade-dashboard-xxxxx.vercel.app', // Replace with YOUR Vercel URL
+  ],
+  credentials: true
+}));
 app.use(express.json());
 
 // Database Connection
